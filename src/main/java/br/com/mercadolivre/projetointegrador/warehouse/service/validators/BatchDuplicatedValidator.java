@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
-public class BatchDuplicatedValidator implements WarehouseValidator {
+public class BatchDuplicatedValidator implements ModelValidator {
 
   private final InboundOrder inboundOrder;
   private final BatchRepository batchRepository;

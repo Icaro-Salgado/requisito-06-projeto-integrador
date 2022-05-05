@@ -6,7 +6,7 @@ import br.com.mercadolivre.projetointegrador.warehouse.repository.SectionReposit
 
 import java.util.Optional;
 
-public class SectionExistsValidator implements WarehouseValidator {
+public class SectionExistsValidator implements ModelValidator {
 
   private final Long sectionId;
   private final SectionRepository sectionRepository;

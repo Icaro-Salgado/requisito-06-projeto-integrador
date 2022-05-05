@@ -6,7 +6,7 @@ import br.com.mercadolivre.projetointegrador.warehouse.model.InboundOrder;
 import br.com.mercadolivre.projetointegrador.warehouse.model.Section;
 import br.com.mercadolivre.projetointegrador.warehouse.repository.SectionRepository;
 
-public class SectionManagerIdValidator implements WarehouseValidator {
+public class SectionManagerIdValidator implements ModelValidator {
 
   private final InboundOrder inboundOrder;
   private final SectionRepository sectionRepository;

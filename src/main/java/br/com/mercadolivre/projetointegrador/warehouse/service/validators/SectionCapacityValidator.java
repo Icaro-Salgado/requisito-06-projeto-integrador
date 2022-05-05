@@ -9,7 +9,7 @@ import br.com.mercadolivre.projetointegrador.warehouse.repository.SectionReposit
 
 import java.util.List;
 
-public class SectionCapacityValidator implements WarehouseValidator {
+public class SectionCapacityValidator implements ModelValidator {
 
   private final InboundOrder order;
   private final SectionRepository sectionRepository;
