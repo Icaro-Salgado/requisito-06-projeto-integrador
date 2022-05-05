@@ -65,12 +65,12 @@ public class ScheduledInboundOrderController {
         return scheduledInboundOrderAssembler.toResponse(response, HttpStatus.OK, null);
     }
 
-    @PutMapping
+    @PutMapping("{id}")
     @JsonView(ScheduledInboundOrderView.update.class)
-    public ResponseEntity<ResponseScheduledInboundOrderDTO> update(@RequestBody @Valid ScheduledInboundOrderDTO dto) {
+    public ResponseEntity<ResponseScheduledInboundOrderDTO> update(@RequestBody @Valid ScheduledInboundOrderDTO dto, @PathVariable Long id) {
 
         ScheduledInboundOrder model = scheduledInboundOrderMapper.toModel(dto);
-        model.setId(dto.getId());
+        model.setId(id);
 
         ScheduledInboundOrder saved = scheduledInboundOrderService.updateScheduledInboundOrder(model);
 
