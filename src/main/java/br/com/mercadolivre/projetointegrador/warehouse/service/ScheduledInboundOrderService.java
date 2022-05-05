@@ -3,6 +3,7 @@ package br.com.mercadolivre.projetointegrador.warehouse.service;
 import br.com.mercadolivre.projetointegrador.warehouse.exception.db.ScheduledInboundOrderNotFound;
 import br.com.mercadolivre.projetointegrador.warehouse.model.ScheduledInboundOrder;
 import br.com.mercadolivre.projetointegrador.warehouse.repository.ScheduledInboundOrderRepository;
+import br.com.mercadolivre.projetointegrador.warehouse.service.validators.SectionAndProductMatchValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ public class ScheduledInboundOrderService {
 
     public ScheduledInboundOrder addScheduledInboundOrder(ScheduledInboundOrder scheduledInboundOrder) {
 
-        // TODO: Add validations
+        SectionAndProductMatchValidator.validate(scheduledInboundOrder.getProduct(), scheduledInboundOrder.getSection());
 
         return scheduledInboundOrderRepository.save(scheduledInboundOrder);
     }
@@ -32,7 +33,7 @@ public class ScheduledInboundOrderService {
             throw new ScheduledInboundOrderNotFound("Ordem de serviço programada não encontrada");
         }
 
-        // TODO: Add validations
+        SectionAndProductMatchValidator.validate(newScheduledInboundOrder.getProduct(), newScheduledInboundOrder.getSection());
 
         return scheduledInboundOrderRepository.save(newScheduledInboundOrder);
     }
