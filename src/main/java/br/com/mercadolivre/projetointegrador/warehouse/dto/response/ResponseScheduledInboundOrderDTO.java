@@ -26,6 +26,5 @@ public class ResponseScheduledInboundOrderDTO {
     @NotNull private Integer quantity;
     @NotNull private LocalDate inboundDate;
 
-    @JsonView(ScheduledInboundOrderView.created.class)
     private List<Map<String, String>> links;
 }

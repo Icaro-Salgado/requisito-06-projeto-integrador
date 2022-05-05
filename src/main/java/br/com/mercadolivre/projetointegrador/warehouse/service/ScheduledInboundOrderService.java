@@ -39,9 +39,9 @@ public class ScheduledInboundOrderService {
     }
 
 
-    public void deleteScheduledInboundOrder(ScheduledInboundOrder toDelete) {
+    public void deleteScheduledInboundOrder(Long id) {
         try {
-            scheduledInboundOrderRepository.delete(toDelete);
+            scheduledInboundOrderRepository.deleteById(id);
         } catch (IllegalArgumentException e) {
             throw new ScheduledInboundOrderNotFound("Ordem de serviço programada não encontrada");
         }
@@ -49,6 +49,10 @@ public class ScheduledInboundOrderService {
 
     public List<ScheduledInboundOrder> findAllByDate(LocalDate date) {
         return scheduledInboundOrderRepository.findAllByInboundDate(date);
+    }
+
+    public List<ScheduledInboundOrder> findAll() {
+        return scheduledInboundOrderRepository.findAll();
     }
 
     public ScheduledInboundOrder findById(Long id) {

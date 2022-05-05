@@ -2,5 +2,5 @@ package br.com.mercadolivre.projetointegrador.warehouse.view;
 
 public class ScheduledInboundOrderView {
 
-    public interface created{};
+    public interface update{};
 }

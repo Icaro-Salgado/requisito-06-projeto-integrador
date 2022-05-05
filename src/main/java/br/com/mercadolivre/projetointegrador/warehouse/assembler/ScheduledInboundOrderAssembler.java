@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
@@ -36,5 +37,26 @@ public class ScheduledInboundOrderAssembler {
         dto.setLinks(List.of(ResponseUtils.parseLinksToMap(links)));
 
         return new ResponseEntity<>(dto, headers, status);
+    }
+
+    public ResponseEntity<List<ResponseScheduledInboundOrderDTO>> toResponse(
+            List<ScheduledInboundOrder> entities, HttpStatus status, HttpHeaders headers) {
+
+        List<ResponseScheduledInboundOrderDTO> response = new ArrayList<>();
+
+        for (ScheduledInboundOrder entity : entities) {
+            ResponseScheduledInboundOrderDTO dto = scheduledInboundOrderMapper.toResponseDTO(entity);
+
+            Links links =
+                    Links.of(
+                            linkTo(methodOn(ScheduledInboundOrderController.class).findById(entity.getId()))
+                                    .withSelfRel());
+
+            dto.setLinks(List.of(ResponseUtils.parseLinksToMap(links)));
+
+            response.add(dto);
+        }
+
+        return new ResponseEntity<>(response, headers, status);
     }
 }
