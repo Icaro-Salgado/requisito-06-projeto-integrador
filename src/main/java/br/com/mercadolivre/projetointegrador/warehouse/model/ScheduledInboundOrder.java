@@ -20,7 +20,9 @@ public class ScheduledInboundOrder {
 
     @Column private Integer quantity;
 
-    @Column private Integer section;
+    @ManyToOne
+    @JoinColumn(name = "section_id")
+    private Section section;
 
     @Column private LocalDate inboundDate;
 }
