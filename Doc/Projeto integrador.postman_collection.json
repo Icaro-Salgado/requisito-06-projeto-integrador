@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "4cfc9731-cdd9-443c-8b76-d7868e40c576",
+		"_postman_id": "466d1578-6978-4c64-9ffa-a473d37a5371",
 		"name": "Projeto integrador",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -370,12 +370,12 @@
 							"query": [
 								{
 									"key": "name",
-									"value": null,
+									"value": "",
 									"disabled": true
 								},
 								{
 									"key": "category",
-									"value": null,
+									"value": "",
 									"disabled": true
 								}
 							]
@@ -532,7 +532,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/api/v1/customers/marketplace/purchases/1",
+							"raw": "localhost:8080/api/v1/customers/marketplace/purchases/2",
 							"host": [
 								"localhost"
 							],
@@ -543,7 +543,7 @@
 								"customers",
 								"marketplace",
 								"purchases",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -566,7 +566,7 @@
 								"customers",
 								"marketplace",
 								"purchases",
-								"1",
+								"2",
 								"1"
 							]
 						}
@@ -602,6 +602,227 @@
 							""
 						]
 					}
+				}
+			]
+		},
+		{
+			"name": "Requisito 06",
+			"item": [
+				{
+					"name": "[WAREHOUSE] Add ScheduledInboundOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{warehouse_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"section\": 1,\n    \"product\": 1,\n    \"quantity\": 1000,\n    \"inboundDate\": \"2023-11-01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/warehouse/scheduled-inbound-order",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"warehouse",
+								"scheduled-inbound-order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[WAREHOUSE] Update ScheduledInboundOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{warehouse_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"section\": 1,\n    \"product\": 1,\n    \"quantity\": 5000,\n    \"inboundDate\": \"2023-11-01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/warehouse/scheduled-inbound-order/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"warehouse",
+								"scheduled-inbound-order",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[WHAREHOUSE] Find Scheduled Inbound Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{warehouse_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/warehouse/scheduled-inbound-order/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"warehouse",
+								"scheduled-inbound-order",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[WHAREHOUSE] Delete Scheduled Inbound Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{warehouse_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/warehouse/scheduled-inbound-order/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"warehouse",
+								"scheduled-inbound-order",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[WAREHOUSE] Find all Scheduled Inbound Orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{warehouse_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/warehouse/scheduled-inbound-order",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"warehouse",
+								"scheduled-inbound-order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[WAREHOUSE] Find all Scheduled Inbound Orders On Date",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{warehouse_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/warehouse/scheduled-inbound-order?date=2022-11-02",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"warehouse",
+								"scheduled-inbound-order"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2022-11-02"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
