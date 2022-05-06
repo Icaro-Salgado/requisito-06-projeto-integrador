@@ -19,20 +19,20 @@ public class WarehouseValidatorExecutor {
   @Autowired private BatchRepository batchRepository;
 
   public void executeValidators(InboundOrder inboundOrder) {
-    List<WarehouseValidator> validators = buildValidators(inboundOrder);
+    List<ModelValidator> validators = buildValidators(inboundOrder);
 
-    validators.forEach(WarehouseValidator::Validate);
+    validators.forEach(ModelValidator::Validate);
   }
 
   public void executeValidators(
-      InboundOrder inboundOrder, List<WarehouseValidator> additionalValidators) {
-    List<WarehouseValidator> validators = new java.util.ArrayList<>(buildValidators(inboundOrder));
+      InboundOrder inboundOrder, List<ModelValidator> additionalValidators) {
+    List<ModelValidator> validators = new java.util.ArrayList<>(buildValidators(inboundOrder));
     validators.addAll(additionalValidators);
 
-    validators.forEach(WarehouseValidator::Validate);
+    validators.forEach(ModelValidator::Validate);
   }
 
-  private List<WarehouseValidator> buildValidators(InboundOrder inboundOrder) {
+  private List<ModelValidator> buildValidators(InboundOrder inboundOrder) {
     return List.of(
         new SectionExistsValidator(inboundOrder.getSectionCode(), sectionRepository),
         new WarehouseExistsValidator(inboundOrder.getWarehouseCode(), warehouseRepository),

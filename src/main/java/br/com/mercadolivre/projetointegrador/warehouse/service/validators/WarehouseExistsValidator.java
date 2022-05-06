@@ -6,7 +6,7 @@ import br.com.mercadolivre.projetointegrador.warehouse.repository.WarehouseRepos
 
 import java.util.Optional;
 
-public class WarehouseExistsValidator implements WarehouseValidator {
+public class WarehouseExistsValidator implements ModelValidator {
 
   private final Long warehouseId;
   private final WarehouseRepository warehouseRepository;

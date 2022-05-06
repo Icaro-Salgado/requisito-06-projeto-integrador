@@ -1,5 +1,5 @@
 package br.com.mercadolivre.projetointegrador.warehouse.service.validators;
 
-public interface WarehouseValidator {
+public interface ModelValidator {
   void Validate();
 }
